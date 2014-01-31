@@ -1,0 +1,64 @@
+\documentclass[pdftex,12pt,a4paper]{extreport}
+\usepackage[pdftex]{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{times}
+\usepackage{graphicx}
+\usepackage[margin=2cm]{geometry}
+\def\arraystretch{1.5}%
+\begin{document}
+\begin{titlepage}
+\begin{center}
+
+\includegraphics[height=3cm,width=3cm]{bau.png}\\
+[1.0cm]
+\Large BAHÇEŞEHİR UNIVERSITY\\
+[3.0cm]
+\Large Faculty of Engineering\\
+[3.0cm]
+\Large Department of Computer Engineering\\
+[3.0cm]
+\large Training Report\\
+[4.0cm]
+\end{center}
+\large Name, Surname:
+% Your name comes here
+\large Student Name\\
+\large Student Number:
+% Your student ID comes here
+\large STUDENTID\\
+\vfill
+
+\end{titlepage}
+
+% Definition for the daily activity page. %
+\newenvironment{dailyactivity}[2]
+{
+    \newpage
+    \begin{center}
+    \textbf{Daily Activities}\\[1cm]
+    \begin{tabular}{|p{2.5cm}|p{12.5cm}|}
+        \hline
+        % Change the department below according to your training.
+        \textbf{Date} \newline #1 & \textbf{Department} \newline DEPARTMENT\\
+        \hline
+        \multicolumn{2}{|p{15.5cm}|}{#2}\\[19cm]
+}
+{
+        \hline
+        \multicolumn{2}{|r|}{Inspected by}\\[2cm]
+        \hline
+    \end{tabular}
+    \end{center}
+}
+
+% Example usage %
+% Change the date below %
+\begin{dailyactivity}{10/07/2013}
+{
+% Add the daily activity below %
+This is an example usage of a day entry in the daily activity report.
+% Daily activity ends here %
+}
+\end{dailyactivity}
+
+\end{document}
