@@ -3,10 +3,16 @@
 \usepackage[utf8]{inputenc}
 \usepackage{times}
 \usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{multirow}
+\usepackage{hyperref,wasysym}
+\usetikzlibrary{calc}
+\usetikzlibrary{decorations.pathmorphing}
 \usepackage[margin=2cm]{geometry}
 \def\arraystretch{1.5}%
 \begin{document}
 \begin{titlepage}
+\pagenumbering{gobble}
 \begin{center}
 
 \includegraphics[height=3cm,width=3cm]{bau.png}\\
@@ -28,7 +34,28 @@
 \large STUDENTID\\
 \vfill
 
+\begin{center}
+\begin{tikzpicture}[overlay,remember picture]
+    \draw [line width=3mm]
+        ($ (current page.north west) + (1cm,-1cm) $)
+        rectangle
+        ($ (current page.south east) + (-1cm,1cm) $);
+\end{tikzpicture}
+
+\includegraphics[height=3cm,width=3cm]{bau.png}\\
+[1.0cm]
+\Large BAHÇEŞEHİR UNIVERSITY\\
+[3.0cm]
+\Large Faculty of Engineering\\
+[3.0cm]
+\Large Department of Computer Engineering\\
+[3.0cm]
+\large Training Report\\
+[4.0cm]
+\end{center}
+\vfill
 \end{titlepage}
+\pagenumbering{arabic}
 
 % Definition for the daily activity page. %
 \newenvironment{dailyactivity}[2]
@@ -51,7 +78,37 @@
     \end{center}
 }
 
-% Example usage %
+% Weekly activity %
+%
+% Just copy and paste this block for each week, and change the dates and the
+% tasks accordingly.
+\newpage
+% Specify which week was it.
+\textbf{1\textsuperscript{st} Week}
+\begin{center}
+\begin{tabular}{|p{2.5cm}|p{12.5cm}|}
+\hline
+\textbf{Date} & \textbf{Tasks Accomplished}\\
+\hline
+% Add the dates and the tasks for that day.
+01/01/2014 & tasks...\\[1cm]
+\hline
+02/01/2014 & tasks...\\[1cm]
+\hline
+03/01/2014 & tasks...\\[1cm]
+\hline
+04/01/2014 & tasks...\\[1cm]
+\hline
+15/01/2014 & tasks...\\[1cm]
+\hline
+\multicolumn{2}{|r|}{\textbf{Executive Officer}}\\[1cm]
+\hline
+\end{tabular}
+\end{center}
+% End of weekly activity block %
+
+% Daily activity %
+% Copy and paste the following block for each daily activity.
 % Change the date below %
 \begin{dailyactivity}{10/07/2013}
 {
@@ -60,5 +117,42 @@ This is an example usage of a day entry in the daily activity report.
 % Daily activity ends here %
 }
 \end{dailyactivity}
+% End of daily activity block %
+
+
+\pagenumbering{gobble}
+\begin{center}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}cr}
+% Rename the picture.jpg to the path of the picture of youeself.
+\includegraphics[height=2cm,width=2cm]{bau.png} & \multirow{4}{*}{\includegraphics[width=4cm]{picture.jpg}}\\
+\large BAHÇEŞEHİR UNIVERSITY & \\
+\large Faculty of Engineering & \\
+\large Department of Computer Engineering &\\
+\end{tabular*}
+\\[4.0cm]
+\large Training Report\\
+[3.0cm]
+\begin{tabular}{|p{3cm}|p{5cm}|}
+\hline
+% Add your name, surname and student ID here:
+Name & NAME\\
+\hline
+Surname & SURNAME\\
+\hline
+ID no & STUDENTID\\
+\hline
+\end{tabular}
+\\[2cm]
+\underline{Department of Computer Engineering}\\
+\underline{Examination Committee}\\[1cm]
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ccr}
+\underline{Member 1} & \underline{Member 2} & \underline{Member 3}\\[3cm]
+\end{tabular*}
+Training Report is;\\
+\begin{tabular*}{8cm}{@{\extracolsep{\fill}}lr}
+Accepted \includegraphics[height=0.3cm,width=0.3cm]{checkbox.png} & Not Accepted \includegraphics[height=0.3cm,width=0.3cm]{checkbox.png}\\
+\end{tabular*}
+\end{center}
+\vfill
 
 \end{document}
